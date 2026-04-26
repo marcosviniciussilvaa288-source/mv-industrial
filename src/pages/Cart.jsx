@@ -1,8 +1,8 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import { useAuth } from "../auth/AuthContext";
 import { createOrder } from "../lib/orders";
-import { Link } from "react-router-dom";
 
 export default function Cart() {
   const {
@@ -15,9 +15,50 @@ export default function Cart() {
   } = useCart();
 
   const { user } = useAuth();
+
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
+
+  const [coupon, setCoupon] = useState("");
+  const [couponApplied, setCouponApplied] = useState(null);
+
+  const coupons = {
+    MV10: 10,
+    MV20: 20,
+    CLIENTE5: 5,
+  };
+
+  const discountPercent = couponApplied ? coupons[couponApplied] : 0;
+  const discountValue = cartTotal * (discountPercent / 100);
+  const finalTotal = cartTotal - discountValue;
+
+  const applyCoupon = () => {
+    const formattedCoupon = coupon.trim().toUpperCase();
+
+    if (!formattedCoupon) {
+      setErrorMsg("Digite um cupom.");
+      setCouponApplied(null);
+      return;
+    }
+
+    if (!coupons[formattedCoupon]) {
+      setErrorMsg("Cupom inválido.");
+      setCouponApplied(null);
+      return;
+    }
+
+    setErrorMsg("");
+    setMessage(`Cupom ${formattedCoupon} aplicado com sucesso!`);
+    setCouponApplied(formattedCoupon);
+  };
+
+  const removeCoupon = () => {
+    setCoupon("");
+    setCouponApplied(null);
+    setMessage("Cupom removido.");
+    setErrorMsg("");
+  };
 
   const whatsappMessage =
     cartItems.length === 0
@@ -25,9 +66,16 @@ export default function Cart() {
       : `Olá, quero orçamento destes produtos:\n${cartItems
           .map(
             (item, index) =>
-              `${index + 1}. ${item.name} - Quantidade: ${item.quantity} - Valor: R$ ${Number(item.price).toFixed(2)}`
+              `${index + 1}. ${item.name} - Quantidade: ${
+                item.quantity
+              } - Valor: R$ ${Number(item.price).toFixed(2)}`
           )
-          .join("\n")}\n\nTotal estimado: R$ ${cartTotal.toFixed(2)}`;
+          .join("\n")}
+
+Subtotal: R$ ${cartTotal.toFixed(2)}
+Desconto: R$ ${discountValue.toFixed(2)}
+Total final: R$ ${finalTotal.toFixed(2)}
+Cupom: ${couponApplied || "Nenhum"}`;
 
   const handleSaveOrder = async () => {
     setMessage("");
@@ -45,7 +93,7 @@ export default function Cart() {
 
     setSaving(true);
 
-    const { error } = await createOrder(user.id, cartItems, cartTotal);
+    const { error } = await createOrder(user.id, cartItems, finalTotal);
 
     setSaving(false);
 
@@ -74,7 +122,7 @@ export default function Cart() {
 
     setSaving(true);
 
-    const { data, error } = await createOrder(user.id, cartItems, cartTotal);
+    const { data, error } = await createOrder(user.id, cartItems, finalTotal);
 
     if (error) {
       setSaving(false);
@@ -141,9 +189,13 @@ export default function Cart() {
 
                   <div className="cart-row-actions">
                     <div className="qty-box">
-                      <button onClick={() => decreaseQuantity(item.slug)}>-</button>
+                      <button onClick={() => decreaseQuantity(item.slug)}>
+                        -
+                      </button>
                       <span>{item.quantity}</span>
-                      <button onClick={() => increaseQuantity(item.slug)}>+</button>
+                      <button onClick={() => increaseQuantity(item.slug)}>
+                        +
+                      </button>
                     </div>
 
                     <button
@@ -159,8 +211,83 @@ export default function Cart() {
 
             <div className="cart-summary">
               <h2>Resumo</h2>
+
               <p>
-                Total: <strong>R$ {cartTotal.toFixed(2)}</strong>
+                Subtotal: <strong>R$ {cartTotal.toFixed(2)}</strong>
+              </p>
+
+              <div style={{ marginTop: "14px" }}>
+                <label style={{ fontWeight: "bold" }}>Cupom de desconto</label>
+
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "8px",
+                    marginTop: "8px",
+                  }}
+                >
+                  <input
+                    type="text"
+                    value={coupon}
+                    onChange={(e) => setCoupon(e.target.value)}
+                    placeholder="Digite o cupom"
+                    style={{
+                      flex: 1,
+                      padding: "10px",
+                      borderRadius: "8px",
+                      border: "1px solid #ccc",
+                    }}
+                  />
+
+                  <button
+                    onClick={applyCoupon}
+                    style={{
+                      padding: "10px 12px",
+                      borderRadius: "8px",
+                      border: "none",
+                      background: "#00A859",
+                      color: "#fff",
+                      fontWeight: "bold",
+                      cursor: "pointer",
+                    }}
+                  >
+                    Aplicar
+                  </button>
+                </div>
+
+                {couponApplied && (
+                  <button
+                    onClick={removeCoupon}
+                    style={{
+                      marginTop: "8px",
+                      background: "transparent",
+                      border: "none",
+                      color: "red",
+                      cursor: "pointer",
+                      padding: 0,
+                    }}
+                  >
+                    Remover cupom
+                  </button>
+                )}
+              </div>
+
+              {couponApplied && (
+                <>
+                  <p style={{ marginTop: "12px" }}>
+                    Cupom: <strong>{couponApplied}</strong>
+                  </p>
+                  <p>
+                    Desconto:{" "}
+                    <strong>
+                      {discountPercent}% - R$ {discountValue.toFixed(2)}
+                    </strong>
+                  </p>
+                </>
+              )}
+
+              <p style={{ fontSize: "18px", marginTop: "12px" }}>
+                Total final: <strong>R$ {finalTotal.toFixed(2)}</strong>
               </p>
 
               {errorMsg && <p style={{ color: "red" }}>{errorMsg}</p>}

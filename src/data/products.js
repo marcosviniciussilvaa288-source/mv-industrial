@@ -404,4 +404,31 @@ export const products = [
     image: "/products/Tubo pneumatico pu.webp",
     variants: ["Medidas variadas"],
   },
+
+{
+  name: "Pc Gamer Completo I7",
+  slug: "pc-gamer-completo-i7",
+  category: "Informatica",
+  price: 2117,
+  stock: 20,
+  image: "/products/Pc Gamer Completo I7.webp",
+  images: [
+    "/products/Pc Gamer Completo I7.webp",
+    "/products/pc-gamer-2.webp",
+    "/products/pc-gamer-3.webp",
+    "/products/pc-gamer-4.webp",
+  ],
+  variants: ["I7 3.4ghz", "16GB RAM", "SSD 480GB", "Fonte 500W", "Monitor 19"],
+
+  description: [
+    "Processador Intel Core i7 3.4GHz",
+    "Memória RAM 16GB",
+    "SSD 480GB",
+    "Fonte 500W",
+    "Monitor 19 polegadas",
+    "Acompanha teclado, mouse e headset",
+    "Sistema Windows instalado",
+    "Ideal para jogos e uso profissional"
+  ]
+}
 ];
