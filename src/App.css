@@ -551,4 +551,153 @@ input {
   .cart-row-actions {
     align-items: flex-start;
   }
+
+  .product-card {
+  height: 310px;
+  overflow: hidden;
+}
+
+.product-card-image {
+  width: 100%;
+  height: 150px !important;
+  object-fit: contain !important;
+  padding: 10px;
+  background: #fff;
+}
+
+.product-card-content {
+  padding: 10px 12px;
+}
+
+.product-card h3 {
+  font-size: 14px;
+  line-height: 1.2;
+  min-height: 34px;
+}
+
+.product-price {
+  font-size: 18px;
+}
+
+.product-stock {
+  font-size: 12px;
+}
+
+.product-card-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.product-card-actions a,
+.product-card-actions button {
+  padding: 8px 10px;
+  font-size: 12px;
+  border-radius: 7px;
+}
+
+/* GRID DOS PRODUTOS */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 produtos por linha */
+  gap: 16px;
+}
+
+/* CARD */
+.product-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  height: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* IMAGEM */
+.product-card-image {
+  width: 100%;
+  height: 120px;
+  object-fit: contain;
+}
+
+/* TEXTO */
+.product-card h3 {
+  font-size: 13px;
+  margin: 5px 0;
+}
+
+.product-price {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.product-stock {
+  font-size: 12px;
+  color: #555;
+}
+
+/* BOTÕES */
+.product-card-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.product-card-actions a,
+.product-card-actions button {
+  flex: 1;
+  font-size: 12px;
+  padding: 6px;
+}
+
+.home-products-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+.home-products-grid .product-card {
+  height: 320px;
+  overflow: hidden;
+}
+
+.home-products-grid .product-card-image {
+  width: 100%;
+  height: 145px !important;
+  object-fit: contain !important;
+  padding: 10px;
+  background: #fff;
+}
+
+.home-products-grid .product-card-content {
+  padding: 10px 12px;
+}
+
+.home-products-grid .product-card h3 {
+  font-size: 14px;
+  line-height: 1.2;
+  min-height: 35px;
+}
+
+.home-products-grid .product-price {
+  font-size: 18px;
+}
+
+.home-products-grid .product-stock {
+  font-size: 12px;
+}
+
+.home-products-grid .product-card-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.home-products-grid .product-card-actions a,
+.home-products-grid .product-card-actions button {
+  flex: 1;
+  font-size: 12px;
+  padding: 8px;
+}
 }

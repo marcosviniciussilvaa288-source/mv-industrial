@@ -6,13 +6,13 @@ export default function Home() {
   const featuredProducts = products;
 
   const categories = [
-    { name: "EPIs", slug: "epis" },
-    { name: "Ferramentas", slug: "ferramentas" },
-    { name: "Embalagem", slug: "embalagem" },
-    { name: "Mangueiras", slug: "mangueiras" },
-    { name: "Pintura", slug: "pintura" },
-    { name: "Pneumática", slug: "pneumatica" },
-  ];
+  { name: "Computadores", slug: "computadores" },
+  { name: "Monitores", slug: "monitores" },
+  { name: "Periféricos", slug: "perifericos" },
+  { name: "Hardware", slug: "hardware" },
+  { name: "Acessórios", slug: "acessorios" },
+  { name: "Ofertas", slug: "ofertas" },
+];
 
   const brands = [
     "3M",

@@ -1,434 +1,260 @@
 export const products = [
+
   {
-    name: "Capacete",
-    slug: "capacete",
-    category: "EPIs",
-    price: 0,
-    stock: 100,
-    image: "/products/capacete.webp",
-    variants: ["Cores variadas"],
-  },
-  {
-    name: "Alicate de bico meia cana",
-    slug: "alicate-de-bico-meia-cana",
-    category: "Ferramentas",
-    price: 0,
-    stock: 100,
-    image: "/products/Alicate de bico meia cana.webp",
-    variants: ["Tamanhos variados"],
-  },
-  {
-    name: "Alicate de corte diagonal",
-    slug: "alicate-de-corte-diagonal",
-    category: "Ferramentas",
-    price: 0,
-    stock: 100,
-    image: "/products/Alicate de corte diagonal.webp",
-    variants: ["Tamanhos variados"],
-  },
-  {
-    name: "Alicate de pressão",
-    slug: "alicate-de-pressao",
-    category: "Ferramentas",
-    price: 0,
-    stock: 100,
-    image: "/products/Alicate de pressão.webp",
-    variants: ["Tamanhos variados"],
-  },
-  {
-    name: "Alicate universal",
-    slug: "alicate-universal",
-    category: "Ferramentas",
-    price: 0,
-    stock: 100,
-    image: "/products/Alicate universal.webp",
-    variants: ["Tamanhos variados"],
-  },
-  {
-    name: "Avental de raspa",
-    slug: "avental-de-raspa",
-    category: "EPIs",
-    price: 0,
-    stock: 100,
-    image: "/products/Avental de raspa.webp",
-    variants: ["Modelos variados"],
-  },
-  {
-    name: "Avental pvc",
-    slug: "avental-pvc",
-    category: "EPIs",
-    price: 0,
-    stock: 100,
-    image: "/products/Avental pvc.webp",
-    variants: ["Cores e tamanhos"],
-  },
-  {
-    name: "Bota de couro bico pvc",
-    slug: "bota-de-couro-bico-pvc",
-    category: "EPIs",
-    price: 0,
-    stock: 100,
-    image: "/products/Bota de couro bico pvc.webp",
-    variants: ["Numerações variadas"],
-  },
-  {
-    name: "Bota sete leguas",
-    slug: "bota-sete-leguas",
-    category: "EPIs",
-    price: 0,
-    stock: 100,
-    image: "/products/Bota sete leguas.webp",
-    variants: ["Numerações e cores"],
-  },
-  {
-    name: "Broca de aço rapido",
-    slug: "broca-de-aco-rapido",
-    category: "Ferramentas",
-    price: 0,
-    stock: 100,
-    image: "/products/Broca de aço rapido.webp",
-    variants: ["Medidas variadas"],
-  },
-  {
-    name: "Capa de chuva amarela",
-    slug: "capa-de-chuva-amarela",
-    category: "EPIs",
-    price: 0,
-    stock: 100,
-    image: "/products/Capa de chuva amarela.webp",
-    variants: ["P, M, G, GG"],
-  },
-  {
-    name: "Capa de chuva conj motoqueiro",
-    slug: "capa-de-chuva-conj-motoqueiro",
-    category: "EPIs",
-    price: 0,
-    stock: 100,
-    image: "/products/Capa de chuva conj motoqueiro.webp",
-    variants: ["P, M, G, GG"],
-  },
-  {
-    name: "Chave de boca fixa",
-    slug: "chave-de-boca-fixa",
-    category: "Ferramentas",
-    price: 0,
-    stock: 100,
-    image: "/products/Chave de boca fixa.webp",
-    variants: ["Medidas variadas"],
-  },
-  {
-    name: "Chave de grifo",
-    slug: "chave-de-grifo",
-    category: "Ferramentas",
-    price: 0,
-    stock: 100,
-    image: "/products/Chave de grifo.webp",
-    variants: ["Tamanhos variados"],
-  },
-  {
-    name: "Chave inglesa",
-    slug: "chave-inglesa",
-    category: "Ferramentas",
-    price: 0,
-    stock: 100,
-    image: "/products/Chave inglesa.webp",
-    variants: ["Tamanhos variados"],
-  },
-  {
-    name: "Disco de corte",
-    slug: "disco-de-corte",
-    category: "Ferramentas",
-    price: 0,
-    stock: 100,
-    image: "/products/Disco de corte.webp",
-    variants: ["Medidas variadas"],
-  },
-  {
-    name: "Escada de aluminio 5 degraus",
-    slug: "escada-de-aluminio-5-degraus",
-    category: "Ferramentas",
-    price: 0,
-    stock: 100,
-    image: "/products/Escada de aluminio 5 degraus.webp",
-    variants: ["5 degraus"],
-  },
-  {
-    name: "Escada de fibra de vidro extensiva",
-    slug: "escada-de-fibra-de-vidro-extensiva",
-    category: "Ferramentas",
-    price: 0,
-    stock: 100,
-    image: "/products/Escada de fibra de vidro extensiva.webp",
-    variants: ["Tamanhos variados"],
-  },
-  {
-    name: "Escada de fibra de vidro tipo tesoura",
-    slug: "escada-de-fibra-de-vidro-tipo-tesoura",
-    category: "Ferramentas",
-    price: 0,
-    stock: 100,
-    image: "/products/Escada de fibra de vidro tipo tesoura.webp",
-    variants: ["Tamanhos variados"],
-  },
-  {
-    name: "Filme stretch",
-    slug: "filme-stretch",
-    category: "Embalagem",
-    price: 0,
-    stock: 100,
-    image: "/products/Filme stretch.webp",
-    variants: ["Pesos e micras"],
-  },
-  {
-    name: "Lampada de Led",
-    slug: "lampada-de-led",
-    category: "Elétrica",
-    price: 0,
-    stock: 100,
-    image: "/products/Lampada de Led.webp",
-    variants: ["Potências variadas"],
-  },
-  {
-    name: "Lanterna",
-    slug: "lanterna",
-    category: "Ferramentas",
-    price: 0,
-    stock: 100,
-    image: "/products/Lanterna.webp",
-    variants: ["Modelos variados"],
-  },
-  {
-    name: "Lona preta",
-    slug: "lona-preta",
-    category: "Embalagem",
-    price: 0,
-    stock: 100,
-    image: "/products/Lona preta.webp",
-    variants: ["Medidas variadas"],
-  },
-  {
-    name: "Lona vinil emborrachada l",
-    slug: "lona-vinil-emborrachada-l",
-    category: "Embalagem",
-    price: 0,
-    stock: 100,
-    image: "/products/Lona vinil emborrachada l.webp",
-    variants: ["Medidas variadas"],
-  },
-  {
-    name: "Luva anti corte",
-    slug: "luva-anti-corte",
-    category: "EPIs",
-    price: 0,
-    stock: 100,
-    image: "/products/Luva anti corte.webp",
-    variants: ["Tamanhos variados"],
-  },
-  {
-    name: "Luva de algodão branca com pigmento",
-    slug: "luva-de-algodao-branca-com-pigmento",
-    category: "EPIs",
-    price: 0,
-    stock: 100,
-    image: "/products/Luva de algodão branca com pigmento.webp",
-    variants: ["Tamanhos variados"],
-  },
-  {
-    name: "Luva de algodão preta com pigmento",
-    slug: "luva-de-algodao-preta-com-pigmento",
-    category: "EPIs",
-    price: 0,
-    stock: 100,
-    image: "/products/Luva de algodão preta com pigmento.webp",
-    variants: ["Tamanhos variados"],
-  },
-  {
-    name: "Luva de algodão branca sem pigmento",
-    slug: "luva-de-algodao-branca-sem-pigmento",
-    category: "EPIs",
-    price: 0,
-    stock: 100,
-    image: "/products/Luva de algodão branca sem pigmento.webp",
-    variants: ["Tamanhos variados"],
-  },
-  {
-    name: "Luva de algodão preta sem pigmento",
-    slug: "luva-de-algodao-preta-sem-pigmento",
-    category: "EPIs",
-    price: 0,
-    stock: 100,
-    image: "/products/Luva de algodão preta sem pigmento.webp",
-    variants: ["Tamanhos variados"],
-  },
-  {
-    name: "Luva de alta temperatura weld",
-    slug: "luva-de-alta-temperatura-weld",
-    category: "EPIs",
-    price: 0,
-    stock: 100,
-    image: "/products/Luva de alta temperatura weld.webp",
-    variants: ["Tamanhos variados"],
-  },
-  {
-    name: "Luva de raspa cano curto",
-    slug: "luva-de-raspa-cano-curto",
-    category: "EPIs",
-    price: 0,
-    stock: 100,
-    image: "/products/Luva de raspa cano curto.webp",
-    variants: ["Tamanhos variados"],
-  },
-  {
-    name: "Luva de raspa cano longo",
-    slug: "luva-de-raspa-cano-longo",
-    category: "EPIs",
-    price: 0,
-    stock: 100,
-    image: "/products/Luva de raspa cano longo.webp",
-    variants: ["Tamanhos variados"],
-  },
-  {
-    name: "Luva latex descartavel branca",
-    slug: "luva-latex-descartavel-branca",
-    category: "EPIs",
-    price: 0,
-    stock: 100,
-    image: "/products/Luva latex descartavel branca.webp",
-    variants: ["Tamanhos variados"],
-  },
-  {
-    name: "Luva malha de aço açogueiro",
-    slug: "luva-malha-de-aco-acogueiro",
-    category: "EPIs",
-    price: 0,
-    stock: 100,
-    image: "/products/Luva malha de aço açogueiro.webp",
-    variants: ["Tamanhos variados"],
-  },
-  {
-    name: "Luva nitrilica com forro",
-    slug: "luva-nitrilica-com-forro",
-    category: "EPIs",
-    price: 0,
-    stock: 100,
-    image: "/products/Luva nitrilica com forro.webp",
-    variants: ["Tamanhos variados"],
-  },
-  {
-    name: "Mangote de raspa",
-    slug: "mangote-de-raspa",
-    category: "EPIs",
-    price: 0,
-    stock: 100,
-    image: "/products/Mangote de raspa.webp",
-    variants: ["Modelos"],
-  },
-  {
-    name: "mangueira PT300 preta",
-    slug: "mangueira-pt300-preta",
-    category: "Mangueiras",
-    price: 0,
-    stock: 100,
-    image: "/products/mangueira PT300 preta.webp",
-    variants: ["Bitolas variadas"],
-  },
-  {
-    name: "mangueira trançada PT250 transparente",
-    slug: "mangueira-trancada-pt250-transparente",
-    category: "Mangueiras",
-    price: 0,
-    stock: 100,
-    image: "/products/mangueira trançada PT250 transparente.webp",
-    variants: ["Bitolas variadas"],
-  },
-  {
-    name: "Mascara descartavel branca",
-    slug: "mascara-descartavel-branca",
-    category: "EPIs",
-    price: 0,
-    stock: 100,
-    image: "/products/Mascara descartavel branca.webp",
-    variants: ["Modelos"],
-  },
-  {
-    name: "Mascara descartavel com filtro",
-    slug: "mascara-descartavel-com-filtro",
-    category: "EPIs",
-    price: 0,
-    stock: 100,
-    image: "/products/Mascara descartavel com filtro.webp",
-    variants: ["Modelos"],
-  },
-  {
-    name: "Mascara descartavel sem filtro azul",
-    slug: "mascara-descartavel-sem-filtro-azul",
-    category: "EPIs",
-    price: 0,
-    stock: 100,
-    image: "/products/Mascara descartavel sem filtro azul.webp",
-    variants: ["Modelo azul"],
-  },
-  {
-    name: "Perneira com fivela",
-    slug: "perneira-com-fivela",
-    category: "EPIs",
-    price: 0,
-    stock: 100,
-    image: "/products/Perneira com fivela.webp",
-    variants: ["Modelos"],
-  },
-  {
-    name: "Plastico bolha",
-    slug: "plastico-bolha",
-    category: "Embalagem",
-    price: 0,
-    stock: 100,
-    image: "/products/Plastico bolha.webp",
-    variants: ["Bobinas"],
-  },
-  {
-    name: "Rolo de lã antirrespingo",
-    slug: "rolo-de-la-antirrespingo",
-    category: "Pintura",
-    price: 0,
-    stock: 100,
-    image: "/products/Rolo de lã antirrespingo.webp",
-    variants: ["Medidas variadas"],
-  },
-  {
-    name: "Tubo pneumatico pu",
-    slug: "tubo-pneumatico-pu",
-    category: "Pneumática",
-    price: 0,
-    stock: 100,
-    image: "/products/Tubo pneumatico pu.webp",
-    variants: ["Medidas variadas"],
+    name: "Pc Gamer Completo I7",
+    slug: "pc-gamer-i7",
+    category: "Computadores",
+    price: 2399,
+    stock: 10,
+
+    images: [
+      "/products/pc-gamer-i7.webp",
+      "/products/pc-gamer-i7-2.webp",
+      "/products/pc-gamer-i7-3.webp",
+      "/products/pc-gamer-i7-4.webp",
+      "/products/pc-gamer-i7-5.webp"
+    ],
+
+    variants: ["I7", "16GB RAM", "SSD 480GB", "Fonte 500W", "Monitor 19"],
+
+    description: [
+      "Processador Intel Core i7 3.4GHz",
+      "Memória RAM 16GB",
+      "SSD 480GB",
+      "Fonte 500W",
+      "Monitor 19 polegadas",
+      "Teclado, mouse e headset inclusos",
+      "Sistema Windows instalado"
+    ],
   },
 
-{
-  name: "Pc Gamer Completo I7",
-  slug: "pc-gamer-completo-i7",
-  category: "Informatica",
-  price: 2117,
-  stock: 20,
-  image: "/products/Pc Gamer Completo I7.webp",
-  images: [
-    "/products/Pc Gamer Completo I7.webp",
-    "/products/pc-gamer-2.webp",
-    "/products/pc-gamer-3.webp",
-    "/products/pc-gamer-4.webp",
-  ],
-  variants: ["I7 3.4ghz", "16GB RAM", "SSD 480GB", "Fonte 500W", "Monitor 19"],
+  {
+    name: "Pc Gamer Ryzen 5",
+    slug: "pc-gamer-ryzen5",
+    category: "Computadores",
+    price: 3799,
+    stock: 8,
 
-  description: [
-    "Processador Intel Core i7 3.4GHz",
-    "Memória RAM 16GB",
-    "SSD 480GB",
-    "Fonte 500W",
-    "Monitor 19 polegadas",
-    "Acompanha teclado, mouse e headset",
-    "Sistema Windows instalado",
-    "Ideal para jogos e uso profissional"
-  ]
-}
+    images: [
+      "/products/pc-gamer-ryzen5.webp",
+      "/products/pc-gamer-ryzen5-2.webp",
+      "/products/pc-gamer-ryzen5-3.webp",
+      "/products/pc-gamer-ryzen5-4.webp",
+      "/products/pc-gamer-ryzen5-5.webp"
+    ],
+
+    variants: ["Ryzen 5", "16GB RAM", "SSD 512GB"],
+
+    description: [
+      "Processador Ryzen 5",
+      "Memória RAM 16GB",
+      "SSD de alta velocidade",
+      "Placa de vídeo dedicada",
+      "Ideal para jogos e uso profissional"
+    ],
+  },
+
+  {
+    name: "Mouse Gamer RGB",
+    slug: "mouse-gamer",
+    category: "Periféricos",
+    price: 79,
+    stock: 35,
+
+    images: [
+      "/products/mouse-gamer.webp",
+      "/products/mouse-gamer-2.webp",
+      "/products/mouse-gamer-3.webp",
+      "/products/mouse-gamer-4.webp",
+      "/products/mouse-gamer-5.webp"
+    ],
+
+    variants: ["RGB", "USB"],
+
+    description: [
+      "Alta precisão",
+      "DPI ajustável",
+      "Iluminação RGB",
+      "Design ergonômico",
+      "Ideal para jogos"
+    ],
+  },
+
+  {
+    name: "Mouse USB Simples",
+    slug: "mouse-usb",
+    category: "Periféricos",
+    price: 29,
+    stock: 50,
+
+    images: [
+      "/products/mouse-usb.webp",
+      "/products/mouse-usb-2.webp",
+      "/products/mouse-usb-3.webp",
+      "/products/mouse-usb-4.webp",
+      "/products/mouse-usb-5.webp"
+    ],
+
+    variants: ["USB"],
+
+    description: [
+      "Plug and Play",
+      "Uso cotidiano",
+      "Leve e prático",
+      "Alta durabilidade"
+    ],
+  },
+
+  {
+    name: "Teclado Gamer RGB",
+    slug: "teclado-gamer",
+    category: "Periféricos",
+    price: 129,
+    stock: 20,
+
+    images: [
+      "/products/teclado-gamer.webp",
+      "/products/teclado-gamer-2.webp",
+      "/products/teclado-gamer-3.webp",
+      "/products/teclado-gamer-4.webp",
+      "/products/teclado-gamer-5.webp"
+    ],
+
+    variants: ["RGB", "USB"],
+
+    description: [
+      "Iluminação RGB",
+      "Teclas macias",
+      "Alta durabilidade",
+      "Design gamer",
+      "Plug and Play"
+    ],
+  },
+
+  {
+    name: "Monitor Gamer 24 Polegadas",
+    slug: "monitor-24",
+    category: "Monitores",
+    price: 899,
+    stock: 12,
+
+    images: [
+      "/products/monitor-24.webp",
+      "/products/monitor-24-2.webp",
+      "/products/monitor-24-3.webp",
+      "/products/monitor-24-4.webp",
+      "/products/monitor-24-5.webp"
+    ],
+
+    variants: ["24 Polegadas", "Full HD", "HDMI"],
+
+    description: [
+      "Tela 24 polegadas",
+      "Resolução Full HD",
+      "Entrada HDMI",
+      "Alta taxa de atualização",
+      "Ideal para jogos e escritório"
+    ],
+  },
+
+  {
+    name: "Memória RAM 16GB DDR4",
+    slug: "memoria-ram-16gb",
+    category: "Hardware",
+    price: 299,
+    stock: 25,
+
+    images: [
+      "/products/memoria-ram.webp",
+      "/products/memoria-ram-2.webp",
+      "/products/memoria-ram-3.webp",
+      "/products/memoria-ram-4.webp",
+      "/products/memoria-ram-5.webp"
+    ],
+
+    variants: ["DDR4", "16GB"],
+
+    description: [
+      "Memória DDR4",
+      "Alta performance",
+      "Ideal para upgrade",
+      "Compatível com diversas placas-mãe"
+    ],
+  },
+
+  {
+    name: "SSD 480GB",
+    slug: "ssd-480gb",
+    category: "Hardware",
+    price: 199,
+    stock: 30,
+
+    images: [
+      "/products/ssd.webp",
+      "/products/ssd-2.webp",
+      "/products/ssd-3.webp",
+      "/products/ssd-4.webp",
+      "/products/ssd-5.webp"
+    ],
+
+    variants: ["480GB"],
+
+    description: [
+      "Alta velocidade",
+      "Inicialização rápida",
+      "Mais desempenho",
+      "Ideal para upgrades"
+    ],
+  },
+
+  {
+    name: "Placa Mãe Intel LGA 1155",
+    slug: "placa-mae-intel",
+    category: "Hardware",
+    price: 399,
+    stock: 15,
+
+    images: [
+      "/products/placa-mae.webp",
+      "/products/placa-mae-2.webp",
+      "/products/placa-mae-3.webp",
+      "/products/placa-mae-4.webp",
+      "/products/placa-mae-5.webp"
+    ],
+
+    variants: ["Intel"],
+
+    description: [
+      "Compatível com Intel",
+      "Alta durabilidade",
+      "Suporte a upgrades",
+      "Uso gamer e profissional"
+    ],
+  },
+
+  {
+    name: "Mouse Pad Gamer",
+    slug: "mousepad-gamer",
+    category: "Periféricos",
+    price: 39,
+    stock: 40,
+
+    images: [
+      "/products/mousepad.webp",
+      "/products/mousepad-2.webp",
+      "/products/mousepad-3.webp",
+      "/products/mousepad-4.webp",
+      "/products/mousepad-5.webp"
+    ],
+
+    variants: ["Grande"],
+
+    description: [
+      "Superfície lisa",
+      "Alta precisão",
+      "Base antiderrapante",
+      "Ideal para jogos"
+    ],
+  }
+
 ];
