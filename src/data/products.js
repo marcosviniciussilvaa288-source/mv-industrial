@@ -1,30 +1,25 @@
 export const products = [
-
   {
     name: "Pc Gamer Completo I7",
     slug: "pc-gamer-i7",
     category: "Computadores",
     price: 2399,
     stock: 10,
-
+    image: "/products/pc-gamer-i7.webp",
     images: [
       "/products/pc-gamer-i7.webp",
       "/products/pc-gamer-i7-2.webp",
       "/products/pc-gamer-i7-3.webp",
       "/products/pc-gamer-i7-4.webp",
-      "/products/pc-gamer-i7-5.webp"
+      "/products/pc-gamer-i7-5.webp",
     ],
-
     variants: ["I7", "16GB RAM", "SSD 480GB", "Fonte 500W", "Monitor 19"],
-
     description: [
-      "Processador Intel Core i7 3.4GHz",
+      "Processador Intel Core i7",
       "Memória RAM 16GB",
       "SSD 480GB",
       "Fonte 500W",
-      "Monitor 19 polegadas",
-      "Teclado, mouse e headset inclusos",
-      "Sistema Windows instalado"
+      "Ideal para jogos, trabalho e estudo",
     ],
   },
 
@@ -34,100 +29,44 @@ export const products = [
     category: "Computadores",
     price: 3799,
     stock: 8,
-
+    image: "/products/pc-gamer-ryzen5.webp",
     images: [
       "/products/pc-gamer-ryzen5.webp",
       "/products/pc-gamer-ryzen5-2.webp",
       "/products/pc-gamer-ryzen5-3.webp",
       "/products/pc-gamer-ryzen5-4.webp",
-      "/products/pc-gamer-ryzen5-5.webp"
+      "/products/pc-gamer-ryzen5-5.webp",
     ],
-
     variants: ["Ryzen 5", "16GB RAM", "SSD 512GB"],
-
     description: [
       "Processador Ryzen 5",
       "Memória RAM 16GB",
       "SSD de alta velocidade",
-      "Placa de vídeo dedicada",
-      "Ideal para jogos e uso profissional"
+      "Excelente desempenho para jogos",
+      "Ideal para uso gamer e profissional",
     ],
   },
 
   {
-    name: "Mouse Gamer RGB",
-    slug: "mouse-gamer",
-    category: "Periféricos",
-    price: 79,
-    stock: 35,
-
-    images: [
-      "/products/mouse-gamer.webp",
-      "/products/mouse-gamer-2.webp",
-      "/products/mouse-gamer-3.webp",
-      "/products/mouse-gamer-4.webp",
-      "/products/mouse-gamer-5.webp"
-    ],
-
-    variants: ["RGB", "USB"],
-
-    description: [
-      "Alta precisão",
-      "DPI ajustável",
-      "Iluminação RGB",
-      "Design ergonômico",
-      "Ideal para jogos"
-    ],
-  },
-
-  {
-    name: "Mouse USB Simples",
-    slug: "mouse-usb",
-    category: "Periféricos",
-    price: 29,
-    stock: 50,
-
-    images: [
-      "/products/mouse-usb.webp",
-      "/products/mouse-usb-2.webp",
-      "/products/mouse-usb-3.webp",
-      "/products/mouse-usb-4.webp",
-      "/products/mouse-usb-5.webp"
-    ],
-
-    variants: ["USB"],
-
-    description: [
-      "Plug and Play",
-      "Uso cotidiano",
-      "Leve e prático",
-      "Alta durabilidade"
-    ],
-  },
-
-  {
-    name: "Teclado Gamer RGB",
-    slug: "teclado-gamer",
-    category: "Periféricos",
-    price: 129,
+    name: "Monitor 19 Polegadas",
+    slug: "monitor-19",
+    category: "Monitores",
+    price: 299,
     stock: 20,
-
+    image: "/products/monitor-19.webp",
     images: [
-      "/products/teclado-gamer.webp",
-      "/products/teclado-gamer-2.webp",
-      "/products/teclado-gamer-3.webp",
-      "/products/teclado-gamer-4.webp",
-      "/products/teclado-gamer-5.webp"
+      "/products/monitor-19.webp",
+      "/products/monitor-19-2.webp",
+      "/products/monitor-19-3.webp",
+      "/products/monitor-19-4.webp",
+      "/products/monitor-19-5.webp",
     ],
-
-    variants: ["RGB", "USB"],
-
+    variants: ["19 Polegadas", "HD", "VGA/HDMI"],
     description: [
-      "Iluminação RGB",
-      "Teclas macias",
-      "Alta durabilidade",
-      "Design gamer",
-      "Plug and Play"
+      "Tela 19 polegadas",
+      "Boa qualidade de imagem",
+      "Ideal para escritório",
+      "Compatível com computador e notebook",
     ],
   },
 
@@ -137,124 +76,664 @@ export const products = [
     category: "Monitores",
     price: 899,
     stock: 12,
-
+    image: "/products/monitor-24.webp",
     images: [
       "/products/monitor-24.webp",
       "/products/monitor-24-2.webp",
       "/products/monitor-24-3.webp",
       "/products/monitor-24-4.webp",
-      "/products/monitor-24-5.webp"
+      "/products/monitor-24-5.webp",
     ],
-
     variants: ["24 Polegadas", "Full HD", "HDMI"],
-
     description: [
       "Tela 24 polegadas",
       "Resolução Full HD",
       "Entrada HDMI",
-      "Alta taxa de atualização",
-      "Ideal para jogos e escritório"
+      "Ideal para jogos e escritório",
+    ],
+  },
+
+  {
+    name: "Teclado Gamer RGB",
+    slug: "teclado-gamer",
+    category: "Periféricos",
+    price: 129,
+    stock: 20,
+    image: "/products/teclado-gamer.webp",
+    images: [
+      "/products/teclado-gamer.webp",
+      "/products/teclado-gamer-2.webp",
+      "/products/teclado-gamer-3.webp",
+      "/products/teclado-gamer-4.webp",
+      "/products/teclado-gamer-5.webp",
+    ],
+    variants: ["RGB", "USB"],
+    description: [
+      "Iluminação RGB",
+      "Conexão USB",
+      "Teclas confortáveis",
+      "Ideal para jogos",
+    ],
+  },
+
+  {
+    name: "Teclado Simples USB",
+    slug: "teclado-usb",
+    category: "Periféricos",
+    price: 49,
+    stock: 40,
+    image: "/products/teclado-usb.webp",
+    images: [
+      "/products/teclado-usb.webp",
+      "/products/teclado-usb-2.webp",
+      "/products/teclado-usb-3.webp",
+      "/products/teclado-usb-4.webp",
+      "/products/teclado-usb-5.webp",
+    ],
+    variants: ["USB", "ABNT2"],
+    description: [
+      "Teclado padrão USB",
+      "Ideal para uso diário",
+      "Fácil instalação",
+      "Compatível com PC e notebook",
+    ],
+  },
+
+  {
+    name: "Mouse Gamer RGB",
+    slug: "mouse-gamer",
+    category: "Periféricos",
+    price: 79,
+    stock: 35,
+    image: "/products/mouse-gamer.webp",
+    images: [
+      "/products/mouse-gamer.webp",
+      "/products/mouse-gamer-2.webp",
+      "/products/mouse-gamer-3.webp",
+      "/products/mouse-gamer-4.webp",
+      "/products/mouse-gamer-5.webp",
+    ],
+    variants: ["RGB", "DPI Ajustável", "USB"],
+    description: [
+      "Mouse gamer com iluminação RGB",
+      "DPI ajustável",
+      "Alta precisão",
+      "Design ergonômico",
+    ],
+  },
+
+  {
+    name: "Mouse USB Simples",
+    slug: "mouse-usb",
+    category: "Periféricos",
+    price: 29,
+    stock: 50,
+    image: "/products/mouse-usb.webp",
+    images: [
+      "/products/mouse-usb.webp",
+      "/products/mouse-usb-2.webp",
+      "/products/mouse-usb-3.webp",
+      "/products/mouse-usb-4.webp",
+      "/products/mouse-usb-5.webp",
+    ],
+    variants: ["USB"],
+    description: [
+      "Mouse básico USB",
+      "Plug and Play",
+      "Leve e prático",
+      "Ideal para uso diário",
+    ],
+  },
+
+  {
+    name: "Memória RAM 8GB DDR4",
+    slug: "ram-8gb",
+    category: "Hardware",
+    price: 129,
+    stock: 25,
+    image: "/products/ram-8gb.webp",
+    images: [
+      "/products/ram-8gb.webp",
+      "/products/ram-8gb-2.webp",
+      "/products/ram-8gb-3.webp",
+      "/products/ram-8gb-4.webp",
+      "/products/ram-8gb-5.webp",
+    ],
+    variants: ["8GB", "DDR4"],
+    description: [
+      "Memória RAM 8GB",
+      "Tecnologia DDR4",
+      "Melhora o desempenho do computador",
+      "Ideal para upgrade",
     ],
   },
 
   {
     name: "Memória RAM 16GB DDR4",
-    slug: "memoria-ram-16gb",
+    slug: "ram-16gb",
     category: "Hardware",
-    price: 299,
-    stock: 25,
-
+    price: 249,
+    stock: 20,
+    image: "/products/ram-16gb.webp",
     images: [
-      "/products/memoria-ram.webp",
-      "/products/memoria-ram-2.webp",
-      "/products/memoria-ram-3.webp",
-      "/products/memoria-ram-4.webp",
-      "/products/memoria-ram-5.webp"
+      "/products/ram-16gb.webp",
+      "/products/ram-16gb-2.webp",
+      "/products/ram-16gb-3.webp",
+      "/products/ram-16gb-4.webp",
+      "/products/ram-16gb-5.webp",
     ],
-
-    variants: ["DDR4", "16GB"],
-
+    variants: ["16GB", "DDR4"],
     description: [
-      "Memória DDR4",
+      "Memória RAM 16GB",
       "Alta performance",
-      "Ideal para upgrade",
-      "Compatível com diversas placas-mãe"
+      "Ideal para jogos e edição",
+      "Melhora multitarefas",
     ],
   },
 
   {
     name: "SSD 480GB",
-    slug: "ssd-480gb",
+    slug: "ssd-480",
     category: "Hardware",
-    price: 199,
+    price: 189,
     stock: 30,
-
+    image: "/products/ssd-480.webp",
     images: [
-      "/products/ssd.webp",
-      "/products/ssd-2.webp",
-      "/products/ssd-3.webp",
-      "/products/ssd-4.webp",
-      "/products/ssd-5.webp"
+      "/products/ssd-480.webp",
+      "/products/ssd-480-2.webp",
+      "/products/ssd-480-3.webp",
+      "/products/ssd-480-4.webp",
+      "/products/ssd-480-5.webp",
     ],
-
-    variants: ["480GB"],
-
+    variants: ["480GB", "SATA"],
     description: [
+      "SSD 480GB",
       "Alta velocidade",
       "Inicialização rápida",
-      "Mais desempenho",
-      "Ideal para upgrades"
+      "Ideal para upgrade de PC e notebook",
+    ],
+  },
+
+{
+  name: "SSD Kingston NV3 1TB",
+  slug: "ssd-kingston-nv3-1tb",
+  category: "Hardware",
+  price: 399,
+  stock: 20,
+  image: "/products/ssd-1tb.webp",
+  images: [
+    "/products/ssd-1tb.webp",
+    "/products/ssd-1tb-2.webp",
+    "/products/ssd-1tb-3.webp",
+    "/products/ssd-1tb-4.webp",
+    "/products/ssd-1tb-5.webp",
+  ],
+  variants: ["1TB", "SATA"],
+  description: [
+    "SSD Kingston NV3 1TB NVMe",
+    "Grande capacidade de armazenamento",
+    "Alta velocidade",
+    "Ideal para jogos e programas",
+  ],
+},
+
+  {
+    name: "Placa Mãe Intel",
+    slug: "placa-mae-intel",
+    category: "Hardware",
+    price: 499,
+    stock: 10,
+    image: "/products/placa-mae-intel.webp",
+    images: [
+      "/products/placa-mae-intel.webp",
+      "/products/placa-mae-intel-2.webp",
+      "/products/placa-mae-intel-3.webp",
+      "/products/placa-mae-intel-4.webp",
+      "/products/placa-mae-intel-5.webp",
+    ],
+    variants: ["Intel"],
+    description: [
+      "Placa mãe compatível com processadores Intel",
+      "Boa durabilidade",
+      "Ideal para montagem e upgrade",
+      "Suporte para memória DDR4",
     ],
   },
 
   {
-    name: "Placa Mãe Intel LGA 1155",
-    slug: "placa-mae-intel",
+    name: "Placa Mãe AMD",
+    slug: "placa-mae-amd",
     category: "Hardware",
-    price: 399,
-    stock: 15,
-
+    price: 459,
+    stock: 10,
+    image: "/products/placa-mae-amd.webp",
     images: [
-      "/products/placa-mae.webp",
-      "/products/placa-mae-2.webp",
-      "/products/placa-mae-3.webp",
-      "/products/placa-mae-4.webp",
-      "/products/placa-mae-5.webp"
+      "/products/placa-mae-amd.webp",
+      "/products/placa-mae-amd-2.webp",
+      "/products/placa-mae-amd-3.webp",
+      "/products/placa-mae-amd-4.webp",
+      "/products/placa-mae-amd-5.webp",
     ],
-
-    variants: ["Intel"],
-
+    variants: ["AMD", "AM4"],
     description: [
-      "Compatível com Intel",
-      "Alta durabilidade",
-      "Suporte a upgrades",
-      "Uso gamer e profissional"
+      "Placa mãe compatível com AMD",
+      "Ideal para PCs gamer",
+      "Suporte DDR4",
+      "Boa performance",
+    ],
+  },
+
+  {
+    name: "Fonte Gamer 500W",
+    slug: "fonte-500w",
+    category: "Hardware",
+    price: 179,
+    stock: 15,
+    image: "/products/fonte-500w.webp",
+    images: [
+      "/products/fonte-500w.webp",
+      "/products/fonte-500w-2.webp",
+      "/products/fonte-500w-3.webp",
+      "/products/fonte-500w-4.webp",
+      "/products/fonte-500w-5.webp",
+    ],
+    variants: ["500W"],
+    description: [
+      "Fonte 500W",
+      "Ideal para PC gamer",
+      "Proteção contra curto circuito",
+      "Boa durabilidade",
+    ],
+  },
+
+  {
+    name: "Kit Gamer 4 em 1",
+    slug: "kit-gamer-4x1",
+    category: "Periféricos",
+    price: 149,
+    stock: 30,
+    image: "/products/kit-gamer.webp",
+    images: [
+      "/products/kit-gamer.webp",
+      "/products/kit-gamer-2.webp",
+      "/products/kit-gamer-3.webp",
+      "/products/kit-gamer-4.webp",
+      "/products/kit-gamer-5.webp",
+    ],
+    variants: ["Teclado", "Mouse", "Headset", "Mousepad"],
+    description: [
+      "Kit gamer completo 4 em 1",
+      "Teclado, mouse, headset e mousepad",
+      "Iluminação gamer",
+      "Excelente custo-benefício",
+    ],
+  },
+
+  {
+    name: "Headset Gamer",
+    slug: "headset-gamer",
+    category: "Periféricos",
+    price: 149,
+    stock: 25,
+    image: "/products/headset-gamer.webp",
+    images: [
+      "/products/headset-gamer.webp",
+      "/products/headset-gamer-2.webp",
+      "/products/headset-gamer-3.webp",
+      "/products/headset-gamer-4.webp",
+      "/products/headset-gamer-5.webp",
+    ],
+    variants: ["USB", "RGB", "Com microfone"],
+    description: [
+      "Headset gamer com microfone",
+      "Som de boa qualidade",
+      "Confortável para uso prolongado",
+      "Ideal para jogos e reuniões",
     ],
   },
 
   {
     name: "Mouse Pad Gamer",
     slug: "mousepad-gamer",
-    category: "Periféricos",
+    category: "Acessórios",
     price: 39,
     stock: 40,
-
+    image: "/products/mousepad-gamer.webp",
     images: [
-      "/products/mousepad.webp",
-      "/products/mousepad-2.webp",
-      "/products/mousepad-3.webp",
-      "/products/mousepad-4.webp",
-      "/products/mousepad-5.webp"
+      "/products/mousepad-gamer.webp",
+      "/products/mousepad-gamer-2.webp",
+      "/products/mousepad-gamer-3.webp",
+      "/products/mousepad-gamer-4.webp",
+      "/products/mousepad-gamer-5.webp",
     ],
-
     variants: ["Grande"],
-
     description: [
+      "Mouse pad gamer",
       "Superfície lisa",
-      "Alta precisão",
       "Base antiderrapante",
-      "Ideal para jogos"
+      "Ideal para jogos",
     ],
-  }
+  },
 
+  {
+    name: "Suporte para Monitor",
+    slug: "suporte-monitor",
+    category: "Acessórios",
+    price: 119,
+    stock: 20,
+    image: "/products/suporte-monitor.webp",
+    images: [
+      "/products/suporte-monitor.webp",
+      "/products/suporte-monitor-2.webp",
+      "/products/suporte-monitor-3.webp",
+      "/products/suporte-monitor-4.webp",
+      "/products/suporte-monitor-5.webp",
+    ],
+    variants: ["Ajustável"],
+    description: [
+      "Suporte para monitor",
+      "Melhora a ergonomia",
+      "Ajuda na organização da mesa",
+      "Fácil instalação",
+    ],
+  },
+
+  {
+    name: "Webcam Full HD 1080p",
+    slug: "webcam-fullhd",
+    category: "Acessórios",
+    price: 129,
+    stock: 25,
+    image: "/products/webcam-fullhd.webp",
+    images: [
+      "/products/webcam-fullhd.webp",
+      "/products/webcam-fullhd-2.webp",
+      "/products/webcam-fullhd-3.webp",
+      "/products/webcam-fullhd-4.webp",
+      "/products/webcam-fullhd-5.webp",
+    ],
+    variants: ["Full HD", "1080p"],
+    description: [
+      "Webcam Full HD 1080p",
+      "Ideal para reuniões, aulas e lives",
+      "Microfone integrado",
+      "Plug and Play",
+    ],
+  },
+
+  {
+    name: "Caixa de Som USB",
+    slug: "caixa-som-usb",
+    category: "Periféricos",
+    price: 89,
+    stock: 20,
+    image: "/products/caixa-som-usb.webp",
+    images: [
+      "/products/caixa-som-usb.webp",
+      "/products/caixa-som-usb-2.webp",
+      "/products/caixa-som-usb-3.webp",
+      "/products/caixa-som-usb-4.webp",
+      "/products/caixa-som-usb-5.webp",
+    ],
+    variants: ["USB"],
+    description: [
+      "Caixa de som USB",
+      "Som estéreo",
+      "Compacta e prática",
+      "Ideal para computador e notebook",
+    ],
+  },
+
+  {
+    name: "Roteador Wi-Fi 300Mbps",
+    slug: "roteador-wifi-300mbps",
+    category: "Acessórios",
+    price: 199,
+    stock: 18,
+    image: "/products/roteador-wifi.webp",
+    images: [
+      "/products/roteador-wifi.webp",
+      "/products/roteador-wifi-2.webp",
+      "/products/roteador-wifi-3.webp",
+      "/products/roteador-wifi-4.webp",
+      "/products/roteador-wifi-5.webp",
+    ],
+    variants: ["300Mbps", "2.4GHz"],
+    description: [
+      "Roteador Wi-Fi 300Mbps",
+      "Boa cobertura",
+      "Fácil configuração",
+      "Ideal para casa e escritório",
+    ],
+  },
+
+  {
+    name: "Adaptador Wi-Fi USB",
+    slug: "adaptador-wifi-usb",
+    category: "Acessórios",
+    price: 49,
+    stock: 40,
+    image: "/products/adaptador-wifi-usb.webp",
+    images: [
+      "/products/adaptador-wifi-usb.webp",
+      "/products/adaptador-wifi-usb-2.webp",
+      "/products/adaptador-wifi-usb-3.webp",
+      "/products/adaptador-wifi-usb-4.webp",
+      "/products/adaptador-wifi-usb-5.webp",
+    ],
+    variants: ["USB"],
+    description: [
+      "Adaptador Wi-Fi USB",
+      "Conecta PC ao Wi-Fi",
+      "Compacto e prático",
+      "Instalação simples",
+    ],
+  },
+
+  {
+    name: "Hub USB 4 Portas",
+    slug: "hub-usb-4-portas",
+    category: "Acessórios",
+    price: 59,
+    stock: 35,
+    image: "/products/hub-usb.webp",
+    images: [
+      "/products/hub-usb.webp",
+      "/products/hub-usb-2.webp",
+      "/products/hub-usb-3.webp",
+      "/products/hub-usb-4.webp",
+      "/products/hub-usb-5.webp",
+    ],
+    variants: ["4 Portas"],
+    description: [
+      "Hub USB com 4 portas",
+      "Expande conexões do computador",
+      "Compacto e leve",
+      "Ideal para escritório",
+    ],
+  },
+
+  {
+    name: "Cabo HDMI 2 Metros",
+    slug: "cabo-hdmi-2m",
+    category: "Acessórios",
+    price: 39,
+    stock: 50,
+    image: "/products/cabo-hdmi-2m.webp",
+    images: [
+      "/products/cabo-hdmi-2m.webp",
+      "/products/cabo-hdmi-2m-2.webp",
+      "/products/cabo-hdmi-2m-3.webp",
+      "/products/cabo-hdmi-2m-4.webp",
+      "/products/cabo-hdmi-2m-5.webp",
+    ],
+    variants: ["2 Metros", "HDMI"],
+    description: [
+      "Cabo HDMI 2 metros",
+      "Transmissão de áudio e vídeo",
+      "Ideal para monitores, TVs e notebooks",
+      "Boa qualidade de imagem",
+    ],
+  },
+
+  {
+    name: "Filtro de Linha 5 Tomadas",
+    slug: "filtro-linha-5-tomadas",
+    category: "Acessórios",
+    price: 59,
+    stock: 30,
+    image: "/products/filtro-linha.webp",
+    images: [
+      "/products/filtro-linha.webp",
+      "/products/filtro-linha-2.webp",
+      "/products/filtro-linha-3.webp",
+      "/products/filtro-linha-4.webp",
+      "/products/filtro-linha-5.webp",
+    ],
+    variants: ["5 Tomadas"],
+    description: [
+      "Filtro de linha com 5 tomadas",
+      "Proteção elétrica",
+      "Ideal para computador e periféricos",
+      "Mais segurança para seus equipamentos",
+    ],
+  },
+
+  {
+    name: "Estabilizador 500VA",
+    slug: "estabilizador-500va",
+    category: "Acessórios",
+    price: 189,
+    stock: 15,
+    image: "/products/estabilizador-500va.webp",
+    images: [
+      "/products/estabilizador-500va.webp",
+      "/products/estabilizador-500va-2.webp",
+      "/products/estabilizador-500va-3.webp",
+      "/products/estabilizador-500va-4.webp",
+      "/products/estabilizador-500va-5.webp",
+    ],
+    variants: ["500VA"],
+    description: [
+      "Estabilizador 500VA",
+      "Protege contra variações de energia",
+      "Ideal para computador",
+      "Mais segurança para equipamentos",
+    ],
+  },
+
+  {
+    name: "Nobreak 600VA",
+    slug: "nobreak-600va",
+    category: "Acessórios",
+    price: 399,
+    stock: 10,
+    image: "/products/nobreak-600va.webp",
+    images: [
+      "/products/nobreak-600va.webp",
+      "/products/nobreak-600va-2.webp",
+      "/products/nobreak-600va-3.webp",
+      "/products/nobreak-600va-4.webp",
+      "/products/nobreak-600va-5.webp",
+    ],
+    variants: ["600VA"],
+    description: [
+      "Nobreak 600VA",
+      "Mantém equipamentos ligados em queda de energia",
+      "Ideal para computador e escritório",
+      "Proteção contra surtos elétricos",
+    ],
+  },
+
+  {
+    name: "Pasta Térmica",
+    slug: "pasta-termica",
+    category: "Hardware",
+    price: 29,
+    stock: 60,
+    image: "/products/pasta-termica.webp",
+    images: [
+      "/products/pasta-termica.webp",
+      "/products/pasta-termica-2.webp",
+      "/products/pasta-termica-3.webp",
+      "/products/pasta-termica-4.webp",
+      "/products/pasta-termica-5.webp",
+    ],
+    variants: ["Aplicação em processador"],
+    description: [
+      "Pasta térmica para processadores",
+      "Ajuda na dissipação de calor",
+      "Ideal para manutenção",
+      "Melhora contato térmico",
+    ],
+  },
+
+  {
+    name: "Cooler Fan RGB",
+    slug: "cooler-fan-rgb",
+    category: "Hardware",
+    price: 69,
+    stock: 25,
+    image: "/products/cooler-fan-rgb.webp",
+    images: [
+      "/products/cooler-fan-rgb.webp",
+      "/products/cooler-fan-rgb-2.webp",
+      "/products/cooler-fan-rgb-3.webp",
+      "/products/cooler-fan-rgb-4.webp",
+      "/products/cooler-fan-rgb-5.webp",
+    ],
+    variants: ["RGB"],
+    description: [
+      "Cooler fan RGB",
+      "Ajuda na refrigeração do gabinete",
+      "Visual gamer",
+      "Ideal para PCs personalizados",
+    ],
+  },
+
+  {
+    name: "Placa de Vídeo GTX 750 Ti",
+    slug: "placa-video-gtx-750ti",
+    category: "Hardware",
+    price: 599,
+    stock: 8,
+    image: "/products/placa-video-gtx-750ti.webp",
+    images: [
+      "/products/placa-video-gtx-750ti.webp",
+      "/products/placa-video-gtx-750ti-2.webp",
+      "/products/placa-video-gtx-750ti-3.webp",
+      "/products/placa-video-gtx-750ti-4.webp",
+      "/products/placa-video-gtx-750ti-5.webp",
+    ],
+    variants: ["2GB"],
+    description: [
+      "Placa de vídeo dedicada",
+      "Boa para jogos leves",
+      "Baixo consumo de energia",
+      "Ótimo custo-benefício",
+    ],
+  },
+
+  {
+    name: "Cadeira Gamer Reclinável",
+    slug: "cadeira-gamer",
+    category: "Acessórios",
+    price: 899,
+    stock: 10,
+    image: "/products/cadeira-gamer.webp",
+    images: [
+      "/products/cadeira-gamer.webp",
+      "/products/cadeira-gamer-2.webp",
+      "/products/cadeira-gamer-3.webp",
+      "/products/cadeira-gamer-4.webp",
+      "/products/cadeira-gamer-5.webp",
+    ],
+    variants: ["Reclinável"],
+    description: [
+      "Cadeira gamer reclinável",
+      "Conforto para longas horas",
+      "Ajuste de altura",
+      "Visual gamer",
+    ],
+  },
 ];
