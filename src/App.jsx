@@ -9,6 +9,8 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Account from "./pages/Account";
 import Checkout from "./pages/Checkout";
+import CheckoutDelivery from "./pages/CheckoutDelivery";
+import CheckoutPayment from "./pages/CheckoutPayment";
 import "./App.css";
 import Admin from "./pages/Admin";
 
@@ -24,6 +26,8 @@ export default function App() {
             <Route path="/produto/:slug" element={<Product />} />
             <Route path="/carrinho" element={<Cart />} />
             <Route path="/checkout" element={<Checkout />} />
+            <Route path="/checkout/entrega" element={<CheckoutDelivery />} />
+            <Route path="/checkout/pagamento" element={<CheckoutPayment />} />
             <Route path="/login" element={<Login />} />
             <Route path="/cadastro" element={<Register />} />
             <Route path="/minha-conta" element={<Account />} />

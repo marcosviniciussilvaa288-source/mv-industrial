@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import { useAuth } from "../auth/AuthContext";
 import { createOrder } from "../lib/orders";
+import { createCheckoutDraft, saveCheckoutDraft } from "../lib/checkoutDraft";
 
 export default function Cart() {
   const {
@@ -15,6 +16,7 @@ export default function Cart() {
   } = useCart();
 
   const { user } = useAuth();
+  const navigate = useNavigate();
 
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState("");
@@ -81,11 +83,6 @@ Cupom: ${couponApplied || "Nenhum"}`;
     setMessage("");
     setErrorMsg("");
 
-    if (!user) {
-      setErrorMsg("Você precisa estar logado.");
-      return;
-    }
-
     if (cartItems.length === 0) {
       setErrorMsg("Carrinho vazio.");
       return;
@@ -106,7 +103,7 @@ Cupom: ${couponApplied || "Nenhum"}`;
     clearCart();
   };
 
-  const handleCheckout = async () => {
+  const handleCheckout = () => {
     setMessage("");
     setErrorMsg("");
 
@@ -120,41 +117,16 @@ Cupom: ${couponApplied || "Nenhum"}`;
       return;
     }
 
-    setSaving(true);
+    saveCheckoutDraft(
+      createCheckoutDraft({
+        items: cartItems,
+        coupon: couponApplied,
+        discountPercent,
+        source: "cart",
+      })
+    );
 
-    const { data, error } = await createOrder(user.id, cartItems, finalTotal);
-
-    if (error) {
-      setSaving(false);
-      setErrorMsg(error.message);
-      return;
-    }
-
-    try {
-      const response = await fetch("http://localhost:3001/create_preference", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          orderId: data.id,
-          items: cartItems,
-        }),
-      });
-
-      const checkout = await response.json();
-      setSaving(false);
-
-      if (checkout.init_point) {
-        window.location.href = checkout.init_point;
-        return;
-      }
-
-      setErrorMsg("Não foi possível iniciar o pagamento.");
-    } catch (error) {
-      setSaving(false);
-      setErrorMsg("Erro ao conectar com o servidor de pagamento.");
-    }
+    navigate("/checkout/entrega");
   };
 
   return (
@@ -164,7 +136,8 @@ Cupom: ${couponApplied || "Nenhum"}`;
 
         {!user && (
           <p style={{ marginBottom: "16px" }}>
-            Faça <Link to="/login">login</Link> para salvar pedido ou pagar.
+            Faça <Link to="/login">login</Link> para salvar o pedido na sua
+            conta, ou finalize como visitante.
           </p>
         )}
 
@@ -319,7 +292,7 @@ Cupom: ${couponApplied || "Nenhum"}`;
                 onClick={handleCheckout}
                 disabled={saving}
               >
-                {saving ? "Preparando pagamento..." : "Pagar com Mercado Pago"}
+                Escolher entrega e pagamento
               </button>
 
               <a

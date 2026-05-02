@@ -1,30 +1,63 @@
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
+import { useSearchParams } from "react-router-dom";
 import { products } from "../data/products";
 import ProductCard from "../components/ProductCard";
 
+function slugifyCategory(value) {
+  return value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
 export default function Catalog() {
-  const [search, setSearch] = useState("");
-  const [category, setCategory] = useState("Todos");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const search = searchParams.get("q") || "";
+  const categorySlug = searchParams.get("categoria") || "todos";
 
   const categories = useMemo(() => {
     const unique = [...new Set(products.map((item) => item.category))];
-    return ["Todos", ...unique];
+    return [
+      { name: "Todos", slug: "todos" },
+      ...unique.map((name) => ({ name, slug: slugifyCategory(name) })),
+    ];
   }, []);
 
+  const selectedCategory =
+    categories.find((item) => item.slug === categorySlug) || categories[0];
+
+  const updateCatalogParams = (updates) => {
+    const nextParams = new URLSearchParams(searchParams);
+
+    Object.entries(updates).forEach(([key, value]) => {
+      if (!value || value === "todos") {
+        nextParams.delete(key);
+      } else {
+        nextParams.set(key, value);
+      }
+    });
+
+    setSearchParams(nextParams);
+  };
+
   const filteredProducts = useMemo(() => {
+    const q = search.trim().toLowerCase();
+
     return products.filter((item) => {
       const matchesCategory =
-        category === "Todos" || item.category === category;
+        categorySlug === "todos" || slugifyCategory(item.category) === categorySlug;
 
-      const q = search.toLowerCase();
       const matchesSearch =
+        !q ||
         item.name.toLowerCase().includes(q) ||
         item.category.toLowerCase().includes(q) ||
         (item.variants || []).some((v) => v.toLowerCase().includes(q));
 
       return matchesCategory && matchesSearch;
     });
-  }, [search, category]);
+  }, [search, categorySlug]);
 
   return (
     <section className="page">
@@ -36,18 +69,20 @@ export default function Catalog() {
             type="text"
             placeholder="Buscar produto..."
             value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={(e) => updateCatalogParams({ q: e.target.value.trimStart() })}
             className="catalog-search"
           />
 
           <div className="catalog-chips">
             {categories.map((item) => (
               <button
-                key={item}
-                className={`catalog-chip ${category === item ? "catalog-chip-active" : ""}`}
-                onClick={() => setCategory(item)}
+                key={item.slug}
+                className={`catalog-chip ${
+                  selectedCategory.slug === item.slug ? "catalog-chip-active" : ""
+                }`}
+                onClick={() => updateCatalogParams({ categoria: item.slug })}
               >
-                {item}
+                {item.name}
               </button>
             ))}
           </div>

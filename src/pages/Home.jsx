@@ -1,33 +1,58 @@
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { products } from "../data/products";
 import ProductCard from "../components/ProductCard";
 
+function slugifyCategory(value) {
+  return value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
 export default function Home() {
-  const featuredProducts = products;
+  const promoCarouselRef = useRef(null);
+  const featuredProducts = products.slice(0, 12);
+  const spotlightProduct = products.find((product) => product.slug === "pc-gamer-i7") || products[0];
 
-  const categories = [
-    { name: "Computadores", slug: "computadores" },
-    { name: "Monitores", slug: "monitores" },
-    { name: "Periféricos", slug: "perifericos" },
-    { name: "Hardware", slug: "hardware" },
-    { name: "Acessórios", slug: "acessorios" },
-    { name: "Ofertas", slug: "ofertas" },
+  const categories = [...new Set(products.map((product) => product.category))].map(
+    (name) => ({
+      name,
+      slug: slugifyCategory(name),
+      count: products.filter((product) => product.category === name).length,
+    })
+  );
+
+  const brands = [
+    { name: "Intel", image: "/brands/intel.png" },
+    { name: "Kingston", image: "/brands/kingston.png" },
+    { name: "Corsair", image: "/brands/corsair.png" },
+    { name: "LG", image: "/brands/lg.png" },
+    { name: "Logitech", image: "/brands/logitech.png" },
   ];
 
-  const brands = ["3M", "ESAB", "FAME", "GEDORE", "MAKITA", "BOSCH", "CORAL", "DOCOL"];
-
-  const heroImages = [
-    "/products/pc-gamer-i7.webp",
-    "/products/pc-gamer-i7-2.webp",
-    "/products/pc-gamer-i7-3.webp",
-    "/products/pc-gamer-i7-4.webp",
-    "/products/pc-gamer-i7-5.webp",
-    "/products/mouse-gamer.webp",
-    "/products/teclado-gamer.webp",
-    "/products/monitor-24.webp",
-    "/products/ssd-480.webp",
-    "/products/ram-16gb.webp",
+  const promoBanners = [
+    "/brands/1776948281.webp",
+    "/brands/1777323222.webp",
+    "/brands/1777550885.webp",
+    "/brands/1777577425.webp",
+    "/brands/1777588344.webp",
   ];
+
+  const scrollPromoCarousel = (direction) => {
+    const carousel = promoCarouselRef.current;
+
+    if (!carousel) {
+      return;
+    }
+
+    carousel.scrollBy({
+      left: direction * Math.round(carousel.clientWidth * 0.85),
+      behavior: "smooth",
+    });
+  };
 
   return (
     <>
@@ -59,51 +84,52 @@ export default function Home() {
             </div>
           </div>
 
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              flexWrap: "nowrap",
-              gap: "16px",
-              overflowX: "auto",
-              overflowY: "hidden",
-              paddingBottom: "12px",
-              width: "100%",
-              maxWidth: "520px",
-            }}
-          >
-            {heroImages.map((img, index) => (
-              <div
-                key={index}
-                style={{
-                  flex: "0 0 150px",
-                  minWidth: "150px",
-                  maxWidth: "150px",
-                  height: "120px",
-                  background: "rgba(255,255,255,0.12)",
-                  border: "1px solid rgba(255,255,255,0.25)",
-                  borderRadius: "12px",
-                  padding: "8px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <img
-                  src={img}
-                  alt="Produto em destaque"
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "contain",
-                    background: "#fff",
-                    borderRadius: "8px",
-                    display: "block",
-                  }}
-                />
+          <div className="home-hero-showcase">
+            <div className="hero-spotlight-card">
+              <span className="hero-spotlight-tag">Mais procurado</span>
+              <img src={spotlightProduct.image} alt={spotlightProduct.name} />
+              <div>
+                <strong>{spotlightProduct.name}</strong>
+                <p>
+                  {Number(spotlightProduct.price || 0).toLocaleString("pt-BR", {
+                    style: "currency",
+                    currency: "BRL",
+                  })}
+                </p>
               </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section className="promo-section">
+        <div className="container promo-container">
+          <button
+            type="button"
+            className="promo-arrow promo-arrow-left"
+            aria-label="Banner anterior"
+            onClick={() => scrollPromoCarousel(-1)}
+          >
+            {"<"}
+          </button>
+
+          <div className="promo-carousel" ref={promoCarouselRef}>
+            {promoBanners.map((banner, index) => (
+              <Link to="/catalogo" className="promo-banner-card" key={banner}>
+                <img src={banner} alt={`Promoção MV Industrial ${index + 1}`} />
+              </Link>
             ))}
           </div>
+
+          <button
+            type="button"
+            className="promo-arrow promo-arrow-right"
+            aria-label="Próximo banner"
+            onClick={() => scrollPromoCarousel(1)}
+          >
+            {">"}
+          </button>
         </div>
       </section>
 
@@ -117,7 +143,8 @@ export default function Home() {
               className="category-card"
               key={category.slug}
             >
-              {category.name}
+              <span>{category.name}</span>
+              <small>{category.count} produtos</small>
             </Link>
           ))}
         </div>
@@ -136,41 +163,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container" style={{ marginTop: "45px", marginBottom: "45px" }}>
-        <h2 style={{ marginBottom: "18px" }}>Marcas trabalhadas</h2>
+      <section className="brands-section container">
+        <h2>Marcas trabalhadas</h2>
 
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            flexWrap: "nowrap",
-            gap: "16px",
-            overflowX: "auto",
-            overflowY: "hidden",
-            paddingBottom: "12px",
-            width: "100%",
-          }}
-        >
+        <div className="brands-grid">
           {brands.map((brand) => (
-            <div
-              key={brand}
-              style={{
-                flex: "0 0 260px",
-                minWidth: "260px",
-                maxWidth: "260px",
-                height: "75px",
-                background: "#fff",
-                border: "1px solid #ddd",
-                borderRadius: "10px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontWeight: "800",
-                color: "#003b63",
-                fontSize: "18px",
-              }}
-            >
-              {brand}
+            <div key={brand.name} className="brand-card">
+              <img src={brand.image} alt={brand.name} />
+              <span>{brand.name}</span>
             </div>
           ))}
         </div>

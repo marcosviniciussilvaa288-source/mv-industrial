@@ -1,29 +1,44 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { products } from "../data/products";
 import { useCart } from "../context/CartContext";
+import { createCheckoutDraft, saveCheckoutDraft } from "../lib/checkoutDraft";
+
+function readSavedReviews(productSlug) {
+  if (!productSlug) {
+    return [];
+  }
+
+  try {
+    const savedReviews = localStorage.getItem(`reviews-${productSlug}`);
+    return savedReviews ? JSON.parse(savedReviews) : [];
+  } catch {
+    return [];
+  }
+}
 
 export default function Product() {
   const { slug } = useParams();
   const { addToCart } = useCart();
+  const navigate = useNavigate();
 
   const product = products.find((item) => item.slug === slug);
+  const productSlug = product?.slug;
 
-  const [selectedImage, setSelectedImage] = useState("");
-  const [reviews, setReviews] = useState([]);
+  const [selectedImages, setSelectedImages] = useState({});
+  const [reviewsBySlug, setReviewsBySlug] = useState({});
   const [reviewName, setReviewName] = useState("");
   const [reviewText, setReviewText] = useState("");
   const [reviewRating, setReviewRating] = useState(5);
+  const [paymentError, setPaymentError] = useState("");
 
-  useEffect(() => {
-    if (product) {
-      const productImages = product.images || [product.image];
-      setSelectedImage(productImages[0]);
+  const productImages = product ? product.images || [product.image] : [];
+  const selectedImage = product
+    ? selectedImages[product.slug] || productImages[0]
+    : "";
 
-      const savedReviews = localStorage.getItem(`reviews-${product.slug}`);
-      setReviews(savedReviews ? JSON.parse(savedReviews) : []);
-    }
-  }, [product]);
+  const savedReviews = readSavedReviews(productSlug);
+  const reviews = product ? reviewsBySlug[product.slug] ?? savedReviews : [];
 
   if (!product) {
     return (
@@ -35,36 +50,17 @@ export default function Product() {
     );
   }
 
-  const productImages = product.images || [product.image];
-
   const handleBuyNow = async () => {
-    try {
-      const response = await fetch("http://localhost:3001/create_preference", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          items: [
-            {
-              title: product.name,
-              unit_price: product.price,
-              quantity: 1,
-            },
-          ],
-        }),
-      });
+    setPaymentError("");
 
-      const data = await response.json();
+    saveCheckoutDraft(
+      createCheckoutDraft({
+        items: [{ ...product, quantity: 1 }],
+        source: "buy-now",
+      })
+    );
 
-      if (data.init_point) {
-        window.location.href = data.init_point;
-      } else {
-        alert("Erro ao iniciar pagamento");
-      }
-    } catch (error) {
-      alert("Erro ao conectar com pagamento");
-    }
+    navigate("/checkout/entrega");
   };
 
   const handleSubmitReview = (e) => {
@@ -85,7 +81,10 @@ export default function Product() {
 
     const updatedReviews = [newReview, ...reviews];
 
-    setReviews(updatedReviews);
+    setReviewsBySlug((prev) => ({
+      ...prev,
+      [product.slug]: updatedReviews,
+    }));
     localStorage.setItem(
       `reviews-${product.slug}`,
       JSON.stringify(updatedReviews)
@@ -120,7 +119,12 @@ export default function Product() {
                   key={index}
                   src={img}
                   alt={`${product.name} ${index + 1}`}
-                  onClick={() => setSelectedImage(img)}
+                  onClick={() =>
+                    setSelectedImages((prev) => ({
+                      ...prev,
+                      [product.slug]: img,
+                    }))
+                  }
                   style={{
                     width: "70px",
                     height: "70px",
@@ -225,6 +229,10 @@ export default function Product() {
                 Pedir no WhatsApp
               </a>
             </div>
+
+            {paymentError && (
+              <p style={{ color: "red", marginTop: "12px" }}>{paymentError}</p>
+            )}
           </div>
         </div>
 

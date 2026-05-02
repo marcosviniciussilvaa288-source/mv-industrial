@@ -36,6 +36,15 @@ export function AuthProvider({ children }) {
     });
   };
 
+  const signInWithGoogle = async () => {
+    return await supabase.auth.signInWithOAuth({
+      provider: "google",
+      options: {
+        redirectTo: `${window.location.origin}/minha-conta`,
+      },
+    });
+  };
+
   const signOut = async () => {
     return await supabase.auth.signOut();
   };
@@ -47,6 +56,7 @@ export function AuthProvider({ children }) {
         loading,
         signUp,
         signIn,
+        signInWithGoogle,
         signOut,
       }}
     >

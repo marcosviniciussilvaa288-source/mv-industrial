@@ -5,109 +5,53 @@ export default function ProductCard({ product }) {
   const { addToCart } = useCart();
 
   const productImage = product.image || product.images?.[0];
+  const price = Number(product.price || 0).toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  });
 
   return (
-    <div
-      style={{
-        background: "#fff",
-        borderRadius: "12px",
-        padding: "12px",
-        height: "330px",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-        overflow: "hidden",
-        border: "1px solid #ddd",
-      }}
-    >
-      <Link to={`/produto/${product.slug}`}>
-        <img
-          src={productImage}
-          alt={product.name}
-          style={{
-            width: "100%",
-            height: "140px",
-            objectFit: "contain",
-            background: "#fff",
-            display: "block",
-          }}
+    <article className="store-product-card">
+      <Link
+        to={`/produto/${product.slug}`}
+        className="store-product-media"
+        aria-label={`Ver produto ${product.name}`}
+      >
+        <span
+          className="store-product-photo"
+          style={{ backgroundImage: `url(${productImage})` }}
         />
       </Link>
 
-      <div>
-        <p
-          style={{
-            color: "#00a859",
-            fontWeight: "bold",
-            fontSize: "12px",
-            textTransform: "uppercase",
-            marginTop: "8px",
-          }}
-        >
-          {product.category}
-        </p>
+      <div className="store-product-content">
+        <div className="store-product-meta">
+          <span>{product.category}</span>
+          <small>{product.stock} em estoque</small>
+        </div>
 
-        <h3
-          style={{
-            fontSize: "15px",
-            lineHeight: "1.2",
-            margin: "6px 0",
-            minHeight: "36px",
-          }}
-        >
-          {product.name}
+        <h3>
+          <Link to={`/produto/${product.slug}`}>{product.name}</Link>
         </h3>
 
-        <p
-          style={{
-            color: "#0b4770",
-            fontWeight: "bold",
-            fontSize: "20px",
-            margin: "6px 0",
-          }}
-        >
-          R$ {Number(product.price).toFixed(2)}
-        </p>
+        <p className="store-product-price">{price}</p>
 
-        <p style={{ fontSize: "12px", marginBottom: "8px" }}>
-          Estoque: {product.stock}
-        </p>
-
-        <div style={{ display: "flex", gap: "8px" }}>
+        <div className="store-product-actions">
           <Link
             to={`/produto/${product.slug}`}
-            style={{
-              flex: 1,
-              background: "#0b4770",
-              color: "#fff",
-              padding: "8px",
-              borderRadius: "7px",
-              textAlign: "center",
-              fontSize: "12px",
-              fontWeight: "bold",
-            }}
+            className="store-product-details"
           >
             Ver produto
           </Link>
 
           <button
+            type="button"
             onClick={() => addToCart(product)}
-            style={{
-              flex: 1,
-              background: "#00a859",
-              color: "#fff",
-              padding: "8px",
-              borderRadius: "7px",
-              border: "none",
-              fontSize: "12px",
-              fontWeight: "bold",
-              cursor: "pointer",
-            }}
+            className="store-product-add"
           >
             Adicionar
           </button>
         </div>
       </div>
-    </div>
+    </article>
   );
 }
